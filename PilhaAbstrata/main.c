@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "PilhaGenerica.h"
+#include "PilhaAbstrata.h"
 
 void mostra_float(void *info);
 

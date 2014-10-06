@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#include "FilaGenerica.h"
+#include "FilaAbstrata.h"
 
 void mostra_float(void *info);
 
