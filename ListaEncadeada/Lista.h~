@@ -27,6 +27,10 @@ int removeDoInicio(Lista *l, void *info);
 int removeNaPosicao(Lista *l, void *info, int pos);
 int modificaNaPosicao(Lista *l, void *info, int pos);
 int leNaPosicao(Lista *l, void *info, int pos);
+/*
+modifica(substitui) um val numa dada pos
+le um valor numa dada pos
+*/
 
 Elemento *aloca_elemento(size_t t, void *info);
 
