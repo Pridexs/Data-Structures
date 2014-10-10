@@ -3,6 +3,7 @@
 #include "Lista.h"
 
 void mostra_float(void *);
+int compara_float(void *, void *);
 
 int main()
 {
@@ -30,6 +31,18 @@ int main()
     printf("%f\n", x);
     leNaPosicao(&l1, &x, 5);
     printf("%f\n", x);
+
+    //
+    x = 3.0;
+    insereEmOrdem(&l1, &x, compara_float);
+    x = 20.0;
+    printf("\n");
+    mostra_lista(l1, mostra_float);
+    removeInfo(&l1, &x);
+    printf("\n");
+    mostra_lista(l1, mostra_float);
+
+
     return 0;
 }
 
@@ -37,4 +50,16 @@ void mostra_float(void *info)
 {
     float *p = (float*)info;
     printf("%f\n", *p);
+}
+
+int compara_float(void *a, void *b)
+{
+    float *p1 = (float*) a;
+    float *p2 = (float*) b;
+
+    if (*p1 == *p2)
+        return 0;
+    if (*p1 > *p2)
+        return 1;
+    return -1;
 }

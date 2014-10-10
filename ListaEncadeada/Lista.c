@@ -121,6 +121,33 @@ int removeNaPosicao(Lista *l, void *info, int pos)
     return 1; //Sucesso
 }
 
+int insereEmOrdem(Lista *l, void *info, int (*compara_float)(void*, void *))
+{
+    int cont = 0;
+    Elemento *aux = l->cabeca;
+    while(aux != NULL && compara_float(aux->info, info) < 0)
+    {
+        aux = aux->proximo;
+        cont++;
+    }
+    return insereNaPosicao(l, info, cont);
+}
+
+int removeInfo(Lista *l, void *info)
+{
+    if(l->cabeca == NULL)
+        return ERRO_LISTA_VAZIA;
+    int cont = 0;
+    Elemento *aux = l->cabeca;
+    while(aux->proximo != NULL && memcmp(aux->info, info, l->tamInfo) != 0)
+    {
+        aux = aux->proximo;
+        cont++;
+    }
+    if (memcmp(aux->info, info, l->tamInfo) == 0)
+        return removeNaPosicao(l, info, cont);
+}
+
 int modificaNaPosicao(Lista *l, void *info, int pos)
 {
     if(pos < 0)

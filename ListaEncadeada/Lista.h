@@ -23,10 +23,18 @@ void mostra_lista(Lista l, void (*mostra_info)(void *));
 int insereNoInicio(Lista *l, void *info);
 int insereNoFim(Lista *l, void *info);
 int insereNaPosicao(Lista *l, void *info, int pos);
+int insereEmOrdem(Lista *l, void *info, int (*compara_float)(void *, void *));
 int removeDoInicio(Lista *l, void *info);
 int removeNaPosicao(Lista *l, void *info, int pos);
+int removeInfo(Lista *l, void *info);
 int modificaNaPosicao(Lista *l, void *info, int pos);
 int leNaPosicao(Lista *l, void *info, int pos);
+
+
+/*
+remove baseada na info
+remocao de toda a lista
+*/
 
 Elemento *aloca_elemento(size_t t, void *info);
 
