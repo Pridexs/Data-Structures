@@ -29,6 +29,33 @@ int main()
     printf("-- Insere 3.6 na pos 2\n");
     mostra_lista_invertida(l1, mostra_float);
 
+    printf("-- Remove na 2\n");
+    removeNaPosicao(&l1, &x, 4);
+    mostra_lista_invertida(l1, mostra_float);
+
+    printf("-- Insere em ordem\n");
+    x = 50.0;
+    insereEmOrdem(&l1, &x, compara_float);
+    mostra_lista_invertida(l1, mostra_float);
+
+    printf("-- Remove 3.5\n");
+    x = 3.5;
+    removeInfo(&l1, &x);
+    mostra_lista_invertida(l1, mostra_float);
+
+    printf("-- Modifica posicao 1 com 6.66\n");
+    x = 6.66;
+    modificaNaPosicao(&l1, &x, 1);
+    mostra_lista_invertida(l1, mostra_float);
+
+    printf("-- Le na pos 2\n");
+    y = 0;
+    leNaPosicao(&l1, &y, 2);
+    printf("%f\n", y);
+
+    printf("-- Mostra lista\n");
+    mostra_lista(l1, mostra_float);
+
     return 0;
 }
 

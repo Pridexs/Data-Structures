@@ -104,7 +104,7 @@ int insereNaPosicao(LDE *l, void *info, int pos)
         novo->proximo->anterior = novo;
     return 1; //Sucesso
 }
-/*
+
 int removeNaPosicao(LDE *l, void *info, int pos)
 {
     if(pos < 0)
@@ -125,7 +125,10 @@ int removeNaPosicao(LDE *l, void *info, int pos)
     memcpy(info, aux->proximo->info, l->tamInfo);
 
     EleDuplo *aux2 = aux->proximo;
-    aux->proximo = aux->proximo->proximo;
+
+    if(aux2->proximo != NULL)
+        aux2->proximo->anterior = aux;
+    aux->proximo = aux2->proximo;
 
     free(aux2->info);
     free(aux2);
@@ -147,7 +150,7 @@ int insereEmOrdem(LDE *l, void *info, int (*compara_float)(void*, void *))
 int removeInfo(LDE *l, void *info)
 {
     if(l->cabeca == NULL)
-        return ERRO_LDE_VAZIA;
+        return ERRO_LISTA_VAZIA;
     int cont = 0;
     EleDuplo *aux = l->cabeca;
     while(aux->proximo != NULL && memcmp(aux->info, info, l->tamInfo) != 0)
@@ -194,7 +197,7 @@ int leNaPosicao(LDE *l, void *info, int pos)
     memcpy(info, aux->info, l->tamInfo);
     return 1; //Sucesso
 }
-*/
+
 EleDuplo *aloca_elemento(size_t t, void *info)
 {
     EleDuplo *p;
@@ -212,8 +215,8 @@ EleDuplo *aloca_elemento(size_t t, void *info)
     memcpy(p->info, info, t);
     return p;
 }
-/*
-void mostra_Lista(LDE l, void (*mostra_info)(void *))
+
+void mostra_lista(LDE l, void (*mostra_info)(void *))
 {
     EleDuplo *aux = l.cabeca;
     if (aux == NULL)
@@ -227,7 +230,7 @@ void mostra_Lista(LDE l, void (*mostra_info)(void *))
         aux = aux->proximo;
     }
 }
-*/
+
 void mostra_lista_invertida(LDE l, void (*mostra_info)(void *))
 {
     EleDuplo *aux = l.cabeca;
