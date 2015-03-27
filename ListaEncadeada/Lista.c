@@ -212,7 +212,7 @@ void mostra_lista(Lista l, void (*mostra_info)(void *))
     while(aux != NULL)
     {
         printf("%d: ", cont++);
-        mostra_float(aux->info);
+        mostra_info(aux->info);
         aux = aux->proximo;
     }
 }

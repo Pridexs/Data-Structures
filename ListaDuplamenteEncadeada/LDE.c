@@ -226,7 +226,7 @@ void mostra_lista(LDE l, void (*mostra_info)(void *))
     while(aux != NULL)
     {
         printf("%d: ", cont++);
-        mostra_float(aux->info);
+        mostra_info(aux->info);
         aux = aux->proximo;
     }
 }
@@ -245,7 +245,7 @@ void mostra_lista_invertida(LDE l, void (*mostra_info)(void *))
     while(aux != NULL)
     {
         printf("%d: ", cont++);
-        mostra_float(aux->info);
+        mostra_info(aux->info);
         aux = aux->anterior;
     }
 }
