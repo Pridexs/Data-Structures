@@ -29,6 +29,7 @@ int removeNaPosicao(Lista *l, void *info, int pos);
 int removeInfo(Lista *l, void *info);
 int modificaNaPosicao(Lista *l, void *info, int pos);
 int leNaPosicao(Lista *l, void *info, int pos);
+int limpa_lista(Lista *l);
 
 
 /*

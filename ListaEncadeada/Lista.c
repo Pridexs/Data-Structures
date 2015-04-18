@@ -202,6 +202,37 @@ Elemento *aloca_elemento(size_t t, void *info)
     return p;
 }
 
+int limpa_lista(Lista *l)
+{
+	Elemento *aux = l->cabeca;
+	// Lista vazia
+	if (aux == NULL)
+		return 1;
+
+	while (aux != NULL)
+	{
+		if (aux->proximo == NULL)
+		{
+			l->cabeca = NULL;
+			free(aux->info);
+			free(aux);
+			return 1;
+		}
+
+		while (aux->proximo->proximo == NULL)
+		{
+			aux = aux->proximo;
+		}
+
+		free(aux->proximo->info);
+		free(aux->proximo);
+		aux->proximo = NULL;
+		aux = l->cabeca;
+	}
+
+	return 1;
+}
+
 void mostra_lista(Lista l, void (*mostra_info)(void *))
 {
     Elemento *aux = l.cabeca;
