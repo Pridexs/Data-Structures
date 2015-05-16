@@ -54,3 +54,12 @@ int pilha_cheia(PilhaGenerica p)
     return p.topo == p.capacidade-1;
 }
 
+int deleta_pilha(PilhaGenerica *p)
+{
+    void *info = (void*) malloc(p->tamInfo);
+    while (desempilha(p, info) != ERRO_PILHA_VAZIA);
+    free(p->dados);
+    free(info);
+    return 0; // Sucesso
+}
+

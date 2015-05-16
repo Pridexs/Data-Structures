@@ -19,6 +19,7 @@ void mostra_pilha(PilhaGenerica p, void (*mostra_info)(void *));
 
 int empilha(PilhaGenerica *p, void *info);
 int desempilha(PilhaGenerica *p, void *info);
+int deleta_pilha(PilhaGenerica *p);
 int pilha_vazia(PilhaGenerica p);
 int pilha_cheia(PilhaGenerica p);
 

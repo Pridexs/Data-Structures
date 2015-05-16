@@ -14,10 +14,8 @@ int main()
     x = 12;
     empilha(&p1, &x);
     mostra_pilha(p1, mostra_float);
-    float y;
-    desempilha(&p1, &y);
-    printf("Y: %lf\n", y);
-    mostra_pilha(p1, mostra_float);
+    if(deleta_pilha(&p1) == 0)
+        printf("Pilha deletada\n");
 
     return 0;
 }
