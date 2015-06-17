@@ -27,6 +27,7 @@ int insereEmOrdem(LDE *l, void *info, int (*compara_float)(void *, void *));
 int removeDoInicio(LDE *l, void *info);
 int removeNaPosicao(LDE *l, void *info, int pos);
 int removeInfo(LDE *l, void *info);
+int removeDoFim(LDE *l, void *info);
 int modificaNaPosicao(LDE *l, void *info, int pos);
 int leNaPosicao(LDE *l, void *info, int pos);
 

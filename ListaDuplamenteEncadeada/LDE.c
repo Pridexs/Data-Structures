@@ -1,6 +1,7 @@
 #include "LDE.h"
 
 #include <stdlib.h>
+#include <string.h>
 
 void inicializa_lista(LDE *l, size_t t)
 {
@@ -160,6 +161,8 @@ int removeInfo(LDE *l, void *info)
     }
     if (memcmp(aux->info, info, l->tamInfo) == 0)
         return removeNaPosicao(l, info, cont);
+   
+   	return 1;
 }
 
 int modificaNaPosicao(LDE *l, void *info, int pos)
@@ -222,10 +225,8 @@ void mostra_lista(LDE l, void (*mostra_info)(void *))
     if (aux == NULL)
         return;
 
-    int cont = 0;
     while(aux != NULL)
     {
-        printf("%d: ", cont++);
         mostra_info(aux->info);
         aux = aux->proximo;
     }
@@ -237,14 +238,12 @@ void mostra_lista_invertida(LDE l, void (*mostra_info)(void *))
     if (aux == NULL)
         return;
 
-    int cont = 0;
     while(aux->proximo != NULL)
     {
         aux = aux->proximo;
     }
     while(aux != NULL)
     {
-        printf("%d: ", cont++);
         mostra_info(aux->info);
         aux = aux->anterior;
     }
