@@ -75,7 +75,7 @@ int insereNaPosicao(Lista *l, void *info, int pos)
         return ERRO_POSICAO_INVALIDA;
     if(pos == 0)
         return insereNoInicio(l, info);
-
+li
     Elemento *aux = l->cabeca;
     int cont = 0;
     while(cont < pos-1 && aux->proximo != NULL)
@@ -219,7 +219,7 @@ int limpa_lista(Lista *l)
 			return 1;
 		}
 
-		while (aux->proximo->proximo == NULL)
+		while (aux->proximo->proximo != NULL)
 		{
 			aux = aux->proximo;
 		}
